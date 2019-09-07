@@ -9,6 +9,8 @@ namespace Vic.SportStore.WebApp.Controllers
 {
     public class ProductController : Controller
     {
+        public IProductsRepository ProductsRepository { get; set; }
+
         private IProductsRepository repository;
         public ProductController(IProductsRepository productsRepository)
         {
