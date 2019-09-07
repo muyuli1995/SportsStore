@@ -24,6 +24,7 @@ namespace Vic.SportStore.WebApp.App_Start
 
             builder.
                RegisterInstance<IProductsRepository>(new InMemoryProductsRepository());
+           
 
             //Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
             //mock
