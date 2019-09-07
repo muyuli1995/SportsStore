@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IProductsRepository.cs" />
+    <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\InMemoryProductsRepository.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
