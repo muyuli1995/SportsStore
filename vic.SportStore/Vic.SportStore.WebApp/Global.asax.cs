@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Vic.SportStore.WebApp.App_Start;
 
 namespace Vic.SportStore.WebApp
 {
@@ -13,6 +14,7 @@ namespace Vic.SportStore.WebApp
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            IocConfig.ConfigIoc();
         }
     }
 }
