@@ -18,13 +18,17 @@ namespace Vic.SportStore.WebApp.App_Start
         {
             var builder = new ContainerBuilder();
 
-            builder.
-                RegisterControllers(typeof(MvcApplication).Assembly).
-                PropertiesAutowired();
+            builder
+                .RegisterControllers(typeof(MvcApplication).Assembly)
+                .PropertiesAutowired();
 
-            builder.
-               RegisterInstance<IProductsRepository>(new InMemoryProductsRepository());
-           
+            builder
+                .RegisterInstance<IProductsRepository>(new EFProductRepository())
+                .PropertiesAutowired();
+
+            builder
+                .RegisterInstance<EFDbContext>(new EFDbContext())
+                .PropertiesAutowired();
 
             //Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
             //mock
