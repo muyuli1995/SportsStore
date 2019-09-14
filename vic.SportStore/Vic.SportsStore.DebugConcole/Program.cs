@@ -21,7 +21,7 @@ namespace Vic.SportsStore.DebugConcole
                         Name = $"apple_{i}",
                         Price = i + 1m,
                         Description = $"this is an apple{i}",
-                        Category = "Food",
+                        Category = "food",
                     };
 
                     var product2 = new Product()
