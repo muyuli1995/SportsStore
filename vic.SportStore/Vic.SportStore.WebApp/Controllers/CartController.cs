@@ -45,15 +45,10 @@ namespace Vic.SportStore.WebApp.Controllers
             }
             return RedirectToAction("Index", new { returnUrl });
         }
-        private Cart GetCart()
+
+        public PartialViewResult Summary(Cart cart)
         {
-            Cart cart = (Cart)Session["Cart"];
-            if (cart == null)
-            {
-                cart = new Cart();
-                Session["Cart"] = cart;
-            }
-            return cart;
+            return PartialView(cart);
         }
     }
 }
