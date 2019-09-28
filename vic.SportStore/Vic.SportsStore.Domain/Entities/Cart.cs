@@ -16,7 +16,8 @@ namespace Vic.SportsStore.Domain.Entities
             .FirstOrDefault();
             if (line == null)
             {
-                lineCollection.Add(new CartLine
+                lineCollection
+                    .Add(new CartLine
                 {
                     Product = product,
                     Quantity = quantity
@@ -29,15 +30,18 @@ namespace Vic.SportsStore.Domain.Entities
         }
         public void RemoveLine(Product product)
         {
-            lineCollection.RemoveAll(l => l.Product.ProductId == product.ProductId);
+            lineCollection
+                .RemoveAll(l => l.Product.ProductId == product.ProductId);
         }
         public decimal ComputeTotalValue()
         {
-            return lineCollection.Sum(e => e.Product.Price * e.Quantity);
+            return lineCollection
+                .Sum(e => e.Product.Price * e.Quantity);
         }
         public void Clear()
         {
-            lineCollection.Clear();
+            lineCollection
+                .Clear();
         }
         public IEnumerable<CartLine> Lines
         {
