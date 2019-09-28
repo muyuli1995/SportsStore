@@ -11,6 +11,7 @@ namespace Vic.SportsStore.WebApp.Infrastructure.Binders
         {
             // get the Cart from the session
             Cart cart = null;
+
             if (controllerContext.HttpContext.Session != null)
             {
                 cart = (Cart)controllerContext.HttpContext.Session[sessionKey];
