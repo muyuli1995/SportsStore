@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -26,11 +27,18 @@ namespace Vic.SportsStore.Domain.Concrete
                 smtpClient.Port = emailSettings.ServerPort;
                 smtpClient.UseDefaultCredentials = false;
                 smtpClient.Credentials = new NetworkCredential(emailSettings.Username, emailSettings.Password);
+
                 if (emailSettings.WriteAsFile)
                 {
                     smtpClient.DeliveryMethod = SmtpDeliveryMethod.SpecifiedPickupDirectory;
                     smtpClient.PickupDirectoryLocation = emailSettings.FileLocation;
                     smtpClient.EnableSsl = false;
+
+                    if (!Directory.Exists(emailSettings.FileLocation))
+                    {
+                        Directory.CreateDirectory(emailSettings.FileLocation);
+                    }
+
                 }
                 StringBuilder body = new StringBuilder()
                 .AppendLine("A new order has been submitted")
