@@ -30,6 +30,11 @@ namespace Vic.SportStore.WebApp.App_Start
                 .RegisterInstance<EFDbContext>(new EFDbContext())
                 .PropertiesAutowired();
 
+            builder
+                .RegisterInstance<IOrderProcessor>(
+                new EmailOrderProcessor(new EmailSettings()))
+                .PropertiesAutowired();
+
             //Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
             //mock
             //    .Setup(m => m.Products)
