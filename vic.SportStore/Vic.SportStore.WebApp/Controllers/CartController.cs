@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Vic.SportsStore.Domain.Abstract;
 using Vic.SportsStore.Domain.Entities;
+using Vic.SportStore.WebApp.Models;
 
 namespace Vic.SportStore.WebApp.Controllers
 {
@@ -14,6 +15,15 @@ namespace Vic.SportStore.WebApp.Controllers
         public CartController(IProductsRepository repo)
         {
             repository = repo;
+        }
+
+        public ViewResult Index(string returnUrl)
+        {
+            return View(new CartIndexViewModel
+            {
+                Cart = GetCart(),
+                ReturnUrl = returnUrl
+            });
         }
         public RedirectToRouteResult AddToCart(int productId, string returnUrl)
         {
